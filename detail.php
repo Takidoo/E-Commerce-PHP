@@ -24,7 +24,6 @@ if (!$article) {
     die("Cet article n'existe pas.");
 }
 
-// Récupérer le rôle actuel si l'utilisateur est connecté
 $user_is_author = false;
 $user_is_admin = false;
 

@@ -8,7 +8,6 @@ if (!isset($_SESSION['user_id'])) {
     exit;
 }
 
-// Vérifier le rôle en base de données
 requireAdmin($_SESSION['user_id'], $pdo);
 syncSessionRole($_SESSION['user_id'], $pdo);
 
@@ -44,7 +43,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $message = "Veuillez remplir tous les champs correctement.";
         $msgType = "error";
     } else {
-        // Gestion de l'upload d'image
         if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
             $file = $_FILES['image'];
             $allowed_types = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
@@ -62,7 +60,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     mkdir($upload_dir, 0755, true);
                 }
 
-                // Supprimer l'ancienne image si elle existe
                 if ($article['image_link'] && file_exists($article['image_link'])) {
                     unlink($article['image_link']);
                 }
@@ -99,7 +96,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $message = "Article mis à jour avec succès !";
                 $msgType = "success";
 
-                // Recharger l'article
                 $stmt->execute(['id' => $article_id]);
                 $article = $stmt->fetch(PDO::FETCH_ASSOC);
             } catch (Exception $e) {
@@ -263,7 +259,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
         });
 
-        // Gestion du drag & drop
         const dragArea = document.querySelector('.file-input-wrapper');
 
         dragArea.addEventListener('dragover', (e) => {

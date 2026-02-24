@@ -8,7 +8,6 @@ if (!isset($_SESSION['user_id'])) {
     exit;
 }
 
-// Vérifier le rôle en base de données
 requireAdmin($_SESSION['user_id'], $pdo);
 syncSessionRole($_SESSION['user_id'], $pdo);
 
@@ -41,7 +40,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $message = "Veuillez remplir tous les champs.";
         $msgType = "error";
     } else {
-        // Vérifier si l'email existe ailleurs
         $checkStmt = $pdo->prepare("SELECT id FROM users WHERE email = :email AND id != :id");
         $checkStmt->execute(['email' => $email, 'id' => $user_id]);
 

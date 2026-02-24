@@ -3,16 +3,13 @@ session_start();
 require_once '../config/database.php';
 require_once '../includes/auth_helper.php';
 
-// Vérifier que l'utilisateur est connecté
 if (!isset($_SESSION['user_id'])) {
     header('Location: ../index.php');
     exit;
 }
 
-// Vérifier le rôle en base de données (pas juste en session)
 requireAdmin($_SESSION['user_id'], $pdo);
 
-// Synchroniser le rôle en session
 syncSessionRole($_SESSION['user_id'], $pdo);
 
 $stmtArticles = $pdo->query("SELECT COUNT(*) as count FROM articles");

@@ -8,7 +8,6 @@ if (!isset($_SESSION['user_id'])) {
     exit;
 }
 
-// Vérifier le rôle en base de données
 requireAdmin($_SESSION['user_id'], $pdo);
 syncSessionRole($_SESSION['user_id'], $pdo);
 
@@ -22,16 +21,12 @@ if (!$user_id || $user_id === $_SESSION['user_id']) {
 try {
     $pdo->beginTransaction();
 
-    // Supprimer les articles de l'utilisateur
     $pdo->prepare("DELETE FROM articles WHERE author_id = :uid")->execute(['uid' => $user_id]);
 
-    // Supprimer le panier
     $pdo->prepare("DELETE FROM cart WHERE user_id = :uid")->execute(['uid' => $user_id]);
 
-    // Supprimer les factures
     $pdo->prepare("DELETE FROM invoices WHERE user_id = :uid")->execute(['uid' => $user_id]);
 
-    // Supprimer l'utilisateur
     $pdo->prepare("DELETE FROM users WHERE id = :id")->execute(['id' => $user_id]);
 
     $pdo->commit();

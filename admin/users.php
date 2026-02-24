@@ -8,7 +8,6 @@ if (!isset($_SESSION['user_id'])) {
     exit;
 }
 
-// Vérifier le rôle en base de données
 requireAdmin($_SESSION['user_id'], $pdo);
 syncSessionRole($_SESSION['user_id'], $pdo);
 

@@ -8,14 +8,12 @@ if (!isset($_SESSION['user_id'])) {
     exit;
 }
 
-// Vérifier le rôle en base de données
 requireAdmin($_SESSION['user_id'], $pdo);
 syncSessionRole($_SESSION['user_id'], $pdo);
 
 $message = "";
 $msgType = "";
 
-// Récupérer tous les articles
 $stmt = $pdo->prepare("SELECT a.*, u.username as author_name, s.quantity as stock FROM articles a 
                       JOIN users u ON a.author_id = u.id 
                       LEFT JOIN stock s ON a.id = s.article_id 

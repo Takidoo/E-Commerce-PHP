@@ -1,5 +1,4 @@
-/* ================== RESET & GLOBALS ================== */
-* {
+* { {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -72,14 +71,12 @@ a:hover {
     color: var(--accent-hover);
 }
 
-/* ================== LAYOUT ================== */
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
 }
 
-/* ================== HEADER/NAV ================== */
 header {
     background-color: rgba(30, 41, 59, 0.8);
     backdrop-filter: blur(10px);
@@ -132,7 +129,6 @@ nav a:hover {
     align-items: center;
 }
 
-/* ================== BUTTONS ================== */
 .btn {
     padding: 0.75rem 1.5rem;
     border-radius: 0.75rem;
@@ -211,7 +207,6 @@ nav a:hover {
     color: var(--text-primary);
 }
 
-/* ================== FORMS ================== */
 input, textarea, select {
     width: 100%;
     padding: 0.75rem 1rem;
@@ -252,7 +247,6 @@ label {
     gap: 1.5rem;
 }
 
-/* ================== CARDS ================== */
 .card {
     background-color: var(--bg-card);
     border-radius: 1rem;
@@ -266,7 +260,6 @@ label {
     box-shadow: 0 20px 40px rgba(59, 130, 246, 0.15);
 }
 
-/* ================== PRODUCT GRID ================== */
 .products-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -347,7 +340,6 @@ label {
     font-weight: 500;
 }
 
-/* ================== SEARCH ================== */
 .search-container {
     background-color: var(--bg-card);
     border: 1px solid var(--border);
@@ -376,7 +368,6 @@ label {
     color: var(--accent);
 }
 
-/* ================== FORMS LAYOUT ================== */
 .form-container {
     max-width: 500px;
     margin: 3rem auto;
@@ -422,7 +413,6 @@ label {
     font-size: 0.9rem;
 }
 
-/* ================== TABLES ================== */
 table {
     width: 100%;
     border-collapse: separate;
@@ -458,7 +448,6 @@ tr:hover {
     background-color: var(--bg-hover);
 }
 
-/* ================== MODALS/ALERTS ================== */
 .empty-state {
     text-align: center;
     padding: 3rem 2rem;
@@ -475,7 +464,6 @@ tr:hover {
     opacity: 0.5;
 }
 
-/* ================== PROFILE ================== */
 .profile-header {
     display: grid;
     grid-template-columns: auto 1fr;
@@ -522,7 +510,6 @@ tr:hover {
     flex-wrap: wrap;
 }
 
-/* ================== SECTIONS ================== */
 .section {
     margin: 3rem 0;
 }
@@ -535,7 +522,6 @@ tr:hover {
     border-bottom: 2px solid var(--border);
 }
 
-/* ================== INVOICES ================== */
 .invoice-card {
     background-color: var(--bg-card);
     padding: 1.5rem;
@@ -557,7 +543,6 @@ tr:hover {
     margin-top: 0.75rem;
 }
 
-/* ================== DETAIL PAGE ================== */
 .product-detail {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -635,7 +620,6 @@ tr:hover {
     flex-direction: column;
 }
 
-/* ================== CART ================== */
 .cart-summary {
     background-color: var(--bg-card);
     padding: 2rem;
@@ -677,7 +661,6 @@ tr:hover {
     font-weight: 500;
 }
 
-/* ================== RESPONSIVE ================== */
 @media (max-width: 768px) {
     h1 {
         font-size: 1.75rem;
@@ -766,7 +749,6 @@ tr:hover {
     }
 }
 
-/* ================== UTILITIES ================== */
 .mt-0 { margin-top: 0; }
 .mt-1 { margin-top: 0.25rem; }
 .mt-2 { margin-top: 0.5rem; }

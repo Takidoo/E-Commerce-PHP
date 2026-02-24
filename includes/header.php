@@ -7,7 +7,6 @@ $username = $_SESSION['username'] ?? null;
 $role = $_SESSION['role'] ?? null;
 $current_page = basename($_SERVER['PHP_SELF']);
 
-// Vérifier le rôle actuel en base de données si connecté
 if ($is_logged_in) {
     $role = getCurrentUserRole($_SESSION['user_id'], $pdo);
 }
