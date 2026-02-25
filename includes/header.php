@@ -14,7 +14,7 @@ if ($is_logged_in) {
 
 <header>
     <div class="header-container">
-        <a href="index.php" class="logo">E-Girl shop</a>
+        <a href="index.php" class="logo">Marketplace</a>
         
         <nav>
             <a href="index.php" class="<?= $current_page === 'index.php' ? 'text-primary' : '' ?>">Accueil</a>
