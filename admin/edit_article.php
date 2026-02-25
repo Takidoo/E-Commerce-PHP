@@ -55,9 +55,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $message = "L'image dépasse 5MB.";
                 $msgType = "error";
             } else {
-                $upload_dir = '../assets/uploads/';
-                if (!is_dir($upload_dir)) {
-                    mkdir($upload_dir, 0755, true);
+                $upload_dir = 'assets/uploads/';
+                if (!is_dir('../' . $upload_dir)) {
+                    mkdir('../' . $upload_dir, 0755, true);
                 }
 
                 if ($article['image_link'] && file_exists($article['image_link'])) {
@@ -67,7 +67,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $filename = uniqid() . '_' . basename($file['name']);
                 $filepath = $upload_dir . $filename;
 
-                if (move_uploaded_file($file['tmp_name'], $filepath)) {
+                if (move_uploaded_file($file['tmp_name'], '../' . $filepath)) {
                     $image_link = $filepath;
                 } else {
                     $message = "Erreur lors du téléchargement de l'image.";
